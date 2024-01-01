@@ -1,25 +1,26 @@
 #!/usr/bin/python3
 
 def canUnlockAll(boxes):
-    # Initialisation : Liste des boîtes ouvertes
+    """
+    Checks if all the boxes in a given list can be unlocked.
+    Args:
+        boxes (list): A list of lists representing the boxes and their corresponding keys. Each inner list contains the indices of the boxes that can be unlocked with the key.
+
+    Returns:
+        bool: True if all the boxes can be unlocked, False otherwise.
+    """
+
     open_boxes = [0]
 
-    # Itération jusqu'à saturation
     while True:
-        # Copie temporaire de la liste des boîtes ouvertes
         temp_open_boxes = open_boxes.copy()
 
-        # Parcours des boîtes ouvertes
         for box in temp_open_boxes:
-            # Parcours des clés dans la boîte actuelle
             for key in boxes[box]:
-                # Ouvrir la boîte correspondante si elle n'est pas déjà ouverte
                 if key not in open_boxes:
                     open_boxes.append(key)
 
-        # Si la liste des boîtes ouvertes n'a pas changé, on a atteint la saturation
         if temp_open_boxes == open_boxes:
             break
 
-    # Vérification finale
     return len(open_boxes) == len(boxes)
