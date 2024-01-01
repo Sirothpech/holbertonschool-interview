@@ -19,25 +19,19 @@ def canUnlockAll(boxes):
     """
     # Initialisation : Liste des boîtes ouvertes
     open_boxes = {0}
+    # Liste des boîtes à ouvrir
+    to_open = set(range(1, len(boxes)))
 
     # Parcours des boîtes ouvertes
-    while True:
-        temp_open_boxes = open_boxes.copy()
-
-        for box in temp_open_boxes:
-            # Vérifier si l'indice de la boîte est valide
-            if 0 <= box < len(boxes):
-                # Parcours des clés dans la boîte actuelle
-                for key in boxes[box]:
-                    # Ouvrir la boîte correspondante
-                    # si elle n'est pas déjà ouverte
-                    if key not in open_boxes:
-                        open_boxes.add(key)
-
-        # Si la liste des boîtes ouvertes n'a pas changé,
-        # on a atteint la saturation
-        if temp_open_boxes == open_boxes:
-            break
+    while open_boxes:
+        box = open_boxes.pop()
+        # Parcours des clés dans la boîte actuelle
+        for key in boxes[box]:
+            # Ouvrir la boîte correspondante
+            # si elle n'est pas déjà ouverte
+            if key in to_open:
+                open_boxes.add(key)
+                to_open.remove(key)
 
     # Vérification finale
-    return len(open_boxes) == len(boxes)
+    return len(to_open) == 0
