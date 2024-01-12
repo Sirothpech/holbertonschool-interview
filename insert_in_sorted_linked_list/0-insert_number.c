@@ -27,6 +27,11 @@ listint_t *insert_node(listint_t **head, int number)
     while (current != NULL && current->n < number)
     {
         prev = current;
+        if (current->n == number)
+        {
+            free(new_node); // Free the allocated node if the number is already in the list
+            return current;
+        }
         current = current->next;
     }
 
@@ -41,5 +46,5 @@ listint_t *insert_node(listint_t **head, int number)
         new_node->next = current;
     }
 
-    return (new_node);
+    return new_node;
 }
