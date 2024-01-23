@@ -19,16 +19,20 @@ def minOperations(n):
 
     operations = 0
 
+    # Gestion des facteurs de 2
     while n % 2 == 0:
         operations += 2
         n //= 2
 
+    # Gestion des facteurs impairs
     i = 3
     while i * i <= n:
         while n % i == 0:
             operations += i
             n //= i
         i += 2
+
+    # Gestion des nombres premiers supérieurs à 2
     if n > 2:
         operations += n
 
