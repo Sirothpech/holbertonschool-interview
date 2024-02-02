@@ -37,7 +37,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
  * is_stable - Checks if a sandpile is stable
  * @grid: 3x3 sandpile
  *
- * Returns: (1) if stable, (0) otherwise
+ * Return: 1 if the sandpile is stable, 0 otherwise
  */
 int is_stable(int grid[3][3])
 {
