@@ -5,21 +5,13 @@ Write a script that reads stdin lineby line and computes metrics
 
 import sys
 
-
-def print_stats(total_size, status_codes):
-    """
-    Print statistics including total file size and
-    number of lines for each status code.
-    """
-    print(f"File size: {total_size}")
-    for code, count in sorted(status_codes.items()):
-        print(f"{code}: {count}")
+if __name__ == "__main__":
+    def print_stats(total_size, status_codes):
+        print(f"File size: {total_size}")
+        for code, count in sorted(status_codes.items()):
+            print(f"{code}: {count}")
 
 
-def main():
-    """
-    Main function that reads stdin line by line and computes metrics.
-    """
     total_size = 0
     status_codes = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0, "404": 0,
                     "405": 0, "500": 0}
@@ -41,7 +33,3 @@ def main():
     except KeyboardInterrupt:
         print_stats(total_size, status_codes)
         raise
-
-
-if __name__ == "__main__":
-    main()
