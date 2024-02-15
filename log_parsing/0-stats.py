@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-"""
-Write a script that reads stdin line
-by line and computes metrics:
-"""
+"""Write a script that reads stdin lineby line and computes metrics:"""
+
 import sys
 
 
