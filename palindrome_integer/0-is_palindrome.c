@@ -11,11 +11,12 @@
 int is_palindrome(unsigned long n)
 {
 	char str[20];
+	int start = 0;
+	int end;
 
 	sprintf(str, "%lu", n);
 
-	int start = 0;
-	int end = strlen(str) - 1;
+	end = strlen(str) - 1;
 
 	while (start < end)
 	{
