@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 /**
  * is_palindrome - Check if an unsigned integer is a palindrome.
@@ -10,24 +8,14 @@
  */
 int is_palindrome(unsigned long n)
 {
-	char str[20];
-	int start = 0;
-	int end;
+	unsigned long original = n;
+	unsigned long reversed = 0;
 
-	sprintf(str, "%lu", n);
-
-	end = strlen(str) - 1;
-
-	while (start < end)
+	while (n > 0)
 	{
-		if (str[start] != str[end])
-		{
-			return (0);
-		}
-
-		start++;
-		end--;
+		reversed = reversed * 10 + n % 10;
+		n /= 10;
 	}
 
-	return (1);
+	return (original == reversed);
 }
