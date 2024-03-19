@@ -9,7 +9,7 @@
  *
  * Return: void
  */
-static void merge_adjacent(int *line, size_t size, int direction)
+void merge_adjacent(int *line, size_t size, int direction)
 {
 	size_t i, j;
 
@@ -57,7 +57,7 @@ static void merge_adjacent(int *line, size_t size, int direction)
  *
  * Return: void
  */
-static void shift_non_zero_elements(int *line, size_t size, int direction)
+void shift_non_zero_elements(int *line, size_t size, int direction)
 {
 	size_t i, j;
 
@@ -97,10 +97,10 @@ int slide_line(int *line, size_t size, int direction)
 	if (line == NULL || (direction != SLIDE_LEFT && direction != SLIDE_RIGHT))
 		return (0);
 
+	size_t i;
+
 	merge_adjacent(line, size, direction);
 	shift_non_zero_elements(line, size, direction);
-
-	size_t i;
 
 	if (direction == SLIDE_LEFT)
 	{
