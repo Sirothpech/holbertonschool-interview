@@ -9,3 +9,4 @@
 # Linked list cycle
 # Palindrome integer
 # UTF-8 Validation
+# 2048 (single line)
