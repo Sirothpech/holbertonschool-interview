@@ -6,3 +6,6 @@ palindrome_integer/palindrome
 utf8_validation/0-main.py
 slide_line/0-slide_line
 slide_line/0-main.c
+sorted_array_to_avl/0-main.c
+sorted_array_to_avl/0-sorted_array_to_avl
+sorted_array_to_avl/binary_tree_print.c
