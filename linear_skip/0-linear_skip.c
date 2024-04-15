@@ -32,6 +32,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
             printf("Value checked at index [%lu] = [%d]\n", list->index, list->n);
             list = list->next;
         }
+        printf("Value checked at index [%lu] = [%d]\n", list->index, list->n); // Ajout de cette ligne
     }
     else
     {
@@ -41,6 +42,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
             printf("Value checked at index [%lu] = [%d]\n", list->index, list->n);
             list = list->next;
         }
+        printf("Value checked at index [%lu] = [%d]\n", list->index, list->n); // Ajout de cette ligne
     }
 
     if (list && list->n == value)
