@@ -9,3 +9,10 @@ slide_line/0-main.c
 sorted_array_to_avl/0-main.c
 sorted_array_to_avl/0-sorted_array_to_avl
 sorted_array_to_avl/binary_tree_print.c
+.vscode/c_cpp_properties.json
+.vscode/settings.json
+linear_skip/0-linear_skip
+linear_skip/0-main.c
+linear_skip/skiplist/create_skiplist.c
+linear_skip/skiplist/free_skiplist.c
+linear_skip/skiplist/print_skiplist.c
