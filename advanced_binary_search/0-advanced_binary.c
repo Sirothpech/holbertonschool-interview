@@ -12,39 +12,39 @@
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-    size_t i;
-    int index;
+	size_t i;
+	int index;
 
-    if (array == NULL || size == 0)
-        return (-1);
+	if (array == NULL || size == 0)
+		return (-1);
 
-    printf("Searching in array:");
-    for (i = 0; i < size; i++)
-    {
-        if (i != size - 1)
-            printf(" %d,", array[i]);
-        else
-            printf(" %d\n", array[i]);
-    }
+	printf("Searching in array:");
+	for (i = 0; i < size; i++)
+	{
+		if (i != size - 1)
+			printf(" %d,", array[i]);
+		else
+			printf(" %d\n", array[i]);
+	}
 
-    if (size == 1 && array[0] != value)
-        return (-1);
+	if (size == 1 && array[0] != value)
+		return (-1);
 
-    index = size / 2;
-    if (array[index] == value)
-    {
-        if (size % 2 == 0)
-            index -= 1;
-        return (index);
-    }
-    else if (array[index] > value)
-        return (advanced_binary(array, index, value));
-    else
-    {
-        int right = advanced_binary(array + index + 1, size - index - 1, value);
+	index = size / 2;
+	if (array[index] == value)
+	{
+		if (size % 2 == 0)
+			index -= 1;
+		return (index);
+	}
+	else if (array[index] > value)
+		return (advanced_binary(array, index, value));
+	else
+	{
+		int right = advanced_binary(array + index + 1, size - index - 1, value);
 
-        if (right == -1)
-            return (-1);
-        return (index + 1 + right);
-    }
+		if (right == -1)
+			return (-1);
+		return (index + 1 + right);
+	}
 }
