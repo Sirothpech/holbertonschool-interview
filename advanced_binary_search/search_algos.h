@@ -2,7 +2,8 @@
 #define SEARCH_ALGOS_H
 
 #include <stddef.h>
-
+#include <stdio.h>
+#include <stdlib.h>
 /* Function prototypes */
 int advanced_binary(int *array, size_t size, int value);
 

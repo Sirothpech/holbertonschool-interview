@@ -1,50 +1,55 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "search_algos.h"
-
 /**
- * advanced_binary - Searches for a value in a sorted array of integers.
- * @array: Pointer to the first element of the array to search in.
- * @size: Number of elements in the array.
- * @value: Value to search for.
- *
- * Return: Index where value is located or -1 if not present or array is NULL.
- */
+ * print - helper function to print the array
+ * @array: is a pointer to the first element of the array to print
+ * @left: first element of the array
+ * @right: last element of the array
+ * Return: Nothing
+ **/
+void print(int *array, size_t left, size_t right)
+{
+	printf("Searching in array: ");
+	while (left < right)
+	{
+		printf("%i, ", array[left]);
+		left++;
+	}
+	printf("%i\n", array[left]);
+}
+/**
+ * use_recursion - helper function to search
+ * @array: is a pointer to the first element of the array to search in
+ * @left: index of first element of the array
+ * @right: index of last element of the array
+ * @value: is the value to search for
+ * Return: the index where value is located, otherwise return -1
+ **/
+int use_recursion(int *array, int left, int right, int value)
+{
+	int middle;
+
+	print(array, left, right);
+	middle = (right - left) / 2 + left;
+	if (left == right)
+		return (-1);
+	if (array[middle] == value && array[middle - 1] != value)
+		return (middle);
+	if (array[middle] >= value)
+		return (use_recursion(array, left, middle, value));
+	if (array[middle] <= value)
+		return (use_recursion(array, middle + 1, right, value));
+	return (-1);
+}
+/**
+ * advanced_binary - searches for a value in a sorted array of integers
+ * @array: is a pointer to the first element of the array to search in
+ * @size: is the number of elements in array
+ * @value: is the value to search for
+ * Return: the index where value is located, otherwise return -1
+ **/
 int advanced_binary(int *array, size_t size, int value)
 {
-	size_t i;
-	int index;
-
-	if (array == NULL || size == 0)
+	if (array == NULL)
 		return (-1);
-
-	printf("Searching in array:");
-	for (i = 0; i < size; i++)
-	{
-		if (i != size - 1)
-			printf(" %d,", array[i]);
-		else
-			printf(" %d\n", array[i]);
-	}
-
-	if (size == 1 && array[0] != value)
-		return (-1);
-
-	index = size / 2;
-	if (array[index] == value)
-	{
-		if (size % 2 == 0)
-			index -= 1;
-		return (index);
-	}
-	else if (array[index] > value)
-		return (advanced_binary(array, index, value));
-	else
-	{
-		int right = advanced_binary(array + index + 1, size - index - 1, value);
-
-		if (right == -1)
-			return (-1);
-		return (index + 1 + right);
-	}
+	return (use_recursion(array, 0, size - 1, value));
 }
