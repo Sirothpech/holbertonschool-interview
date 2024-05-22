@@ -5,7 +5,7 @@
 import requests
 
 
-def count_words(subreddit, word_list, after='', word_count={}):
+def count_words(subreddit, word_list, after='', word_count=None):
     """
     Recursively queries the Reddit API, parses the titles of all hot articles,
     and prints a sorted count of given keywords.
@@ -15,7 +15,7 @@ def count_words(subreddit, word_list, after='', word_count={}):
     :param after: The after parameter for pagination in the Reddit API.
     :param word_count: A dictionary to keep track of keyword counts.
     """
-    if not word_count:
+    if word_count is None:
         word_count = {word.lower(): 0 for word in word_list}
 
     url = f'https://www.reddit.com/r/{subreddit}/hot.json'
