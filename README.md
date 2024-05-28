@@ -19,3 +19,4 @@
 # Heap sort
 # Advanced Binary Search
 # Count it
+# Heap Extract
