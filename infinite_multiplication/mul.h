@@ -3,8 +3,8 @@
 
 int _putchar(char c);
 void print_error_and_exit(void);
-int is_digit_str(char *str);
-char *multiply(char *num1, char *num2);
-void print_result(char *result);
+int is_digit_str(const char *str);
+void multiply(const char *num1, const char *num2);
+void print_result(int *result, int size);
 
 #endif /* MUL_H */
