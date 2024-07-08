@@ -20,10 +20,8 @@ def makeChange(coins, total):
     """
 
     # Base cases:
-    if total == 0:
+    if total < 0:
         return 0
-    elif total < 0:
-        return -1
 
     # Initialize a table to store minimum coin counts for subproblems
     dp = [float('inf')] * (total + 1)
