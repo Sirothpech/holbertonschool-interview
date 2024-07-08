@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+"""
+Determines the minimum number of coins needed to meet a
+given amount using available coin denominations.
+"""
+
+
 def makeChange(coins, total):
     """
     This function determines the fewest number of coins
