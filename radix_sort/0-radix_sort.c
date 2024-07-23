@@ -8,9 +8,10 @@
  */
 int get_max(int *array, size_t size)
 {
+	size_t i;
 	int max = array[0];
 
-	for (size_t i = 1; i < size; i++)
+	for (i = 1; i < size; i++)
 	{
 		if (array[i] > max)
 			max = array[i];
